@@ -66,9 +66,9 @@ The mathematical form of Q-Learning is as follows, which updates the Q-Table.
 
 ![image](https://github.com/rq70/CartPole/assets/68390542/7a4a64e5-7583-49ca-8515-6fcdbe98455a)
 
-![code](def update_q(Q_table, state, action, reward, new_state, alpha, gamma):
+def update_q(Q_table, state, action, reward, new_state, alpha, gamma):
     Q_table[state][action] = Q_table[state][action] + alpha * (reward + gamma * np.max(Q_table[new_state]) - Q_table[state][action])
-    return Q_table)
+    return Q_table
 
 # OpenAI Gym Environment:
 
