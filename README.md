@@ -37,15 +37,15 @@ Most of the time, the agent chooses an action that maximizes its reward, but som
         return np.argmax(Q_table[state])
 ```
 In the code above, a function is written that has four inputs, inside it there is a condition that creates random numbers between 01 and is matched with the search rate. If the condition is met, it samples a random operation. If the condition is not met, Greedy performs the action that has the highest reward given the current situation.
-`
+```
 def get_rate(e):
     return max(0.1, min(1., 1. - np.log10((e + 1) / 25.)))
-  `  
+```
 We use an arbitrary function to set the amount of learning and searching as you can see above. According to the current episode, it gives us the rate, and with the increase in the number of episodes, the rate tends to decrease.
 This code produces a non-negative number calculated based on the input e. More precisely, log10((e + 1) / 25) is calculated, then it is put from a right arm and finally it is min 1 and max 0.1 and the final output is returned as the output number.
 
 In fact, this code is an activation function that may be used in neural networks and machine learning. The initial function uses min and max to limit the output and uses log10 to decrease the value.
-`
+```
  import matplotlib.pyplot as plt
  import numpy as np
  x = np.linspace(1, 1000, 1000)
@@ -54,7 +54,7 @@ In fact, this code is an activation function that may be used in neural networks
  plt.xlabel("Episode")
  plt.ylabel("Rate")
  plt.show()
-`
+```
 This code allows you to create an unsigned array named x that contains 1000 numbers, with a difference of 1 in the range 1 to 1000. More precisely, the linspace function in namespace creates an array of length 1000 that starts at 1 and ends at 1000, with the crossing points between these two ends evenly distributed. That is, the distance between two consecutive numbers is equal.
 This code takes a numpy array named x and calls the get_rate function for each element of the array and returns it as a new member to the y array. In other words, this code calculates a rate for each member of the x array using the get_rate function and stores its return in a new array named y.
 
@@ -65,13 +65,13 @@ This code takes a numpy array named x and calls the get_rate function for each e
 The mathematical form of Q-Learning is as follows, which updates the Q-Table.
 
 ![image](https://github.com/rq70/CartPole/assets/68390542/7a4a64e5-7583-49ca-8515-6fcdbe98455a)
-`
+```
 def update_q(Q_table, state, action, reward, new_state, alpha, gamma):
     Q_table[state][action] = Q_table[state][action] + alpha * (reward + gamma * np.max(Q_table[new_state]) - Q_table[state][action])
     return Q_table
-`
+```
 # OpenAI Gym Environment:
-`
+```
 !pip install gym >/dev/null
 import gym
 env = gym.make('CartPole-v0')
@@ -85,22 +85,22 @@ for e in range(1):
             print("Episode finished after {} timesteps".format(step+1))
             break
 env.close()
-`
-`
+```
+```
 # Update the package references repository
 !apt update -y >/dev/null
 # Install packages for visualisation
 !apt-get install xvfb python3-opengl ffmpeg -y >/dev/null
 !pip install pyvirtualdisplay imageio >/dev/null
-`
-`
+```
+```
 # Do all the necessary imports, based on the installations we just did
 import gym, math, imageio, os, time
 import numpy as np
 import matplotlib.pyplot as plt
 from pyvirtualdisplay import Display
-`
-`
+```
+```
 # Fix the random number seed
 np.random.seed(42)
 fake_display = False
@@ -155,9 +155,9 @@ def Q_learning(env, num_episodes):
         total_reward.append(episode_reward)
     print('Finished training!')
     return Q_table, total_reward
-`    
+```
 Note that the pole angle or cart coordinate is continuous. To explain Q-learning in its default form using a table, we need to discretize the situation with respect to the position of the pole and the cart. In order to do this, we introduce the following function that converts the continuous space into discrete bins based on predefined bounds.
-`
+```
 def discretize_state(state, env, buckets=(1, 1, 6, 12)):
     # The upper and the lower bounds for the discretization
     upper_bounds = [env.observation_space.high[0], 0.5, env.observation_space.high[2], math.radians(50) / 1.]
@@ -171,9 +171,9 @@ def discretize_state(state, env, buckets=(1, 1, 6, 12)):
     state_ = [min(buckets[i] - 1, max(0, state_[i])) for i in range(len(state))]
     
     return tuple(state_)
-`
+```
 # balance the pole!
-`
+```
 # OpenAI Gym builds the environment for us inclusing all the rules, dynamics etc.
 env = gym.make('CartPole-v0')
 # How long do we want the agent to explore and learn
@@ -186,11 +186,11 @@ plt.plot(range(num_episodes), total_reward)
 plt.xlabel('Episode')
 plt.ylabel('Training cumulative reward')
 plt.show()
-`
+```
 ![image](https://github.com/rq70/CartPole/assets/68390542/b57835ca-d6a4-4ac3-80c5-85286d30c8b7)
 
 # Final Test and Visualisation
-`
+```
 # Initialise the reward
 episode_reward = 0
 # Count how many times the agent went right and how many times it went left
@@ -245,7 +245,7 @@ for f in filenames:
 
 # Close the environment
 env.close()
-`
+```
 ![image](https://github.com/rq70/CartPole/assets/68390542/f00ea74d-a323-4803-a578-cf6f9f271afa)
 
 ![download (1)](https://github.com/rq70/CartPole/assets/68390542/fec3160c-0762-495f-8101-02ebe945d91b)
