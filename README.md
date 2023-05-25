@@ -60,7 +60,7 @@ This code takes a numpy array named x and calls the get_rate function for each e
 
 ![download (1)](https://github.com/rq70/CartPole/assets/68390542/e97bff77-ea55-42e9-8c9c-3a7d7c688a69)
 
-#Algorithm:
+# Algorithm:
 The mathematical form of Q-Learning is as follows, which updates the Q-Table.
 
 ![image](https://github.com/rq70/CartPole/assets/68390542/7a4a64e5-7583-49ca-8515-6fcdbe98455a)
