@@ -30,13 +30,12 @@ When the agent first starts searching, the values in the above table are unknown
 The goal of Q-Learning is to continuously exit the discovery phase and record the exact values (as possible) in the table.
 Most of the time, the agent chooses an action that maximizes its reward, but sometimes it acts randomly to ensure discovery.
 
-# 
  def epsilon_greedy_policy(state, env, Q_table, exploration_rate):
     if (np.random.random() < exploration_rate):
         return env.action_space.sample()
     else:
         return np.argmax(Q_table[state])
-        
+
 In the code above, a function is written that has four inputs, inside it there is a condition that creates random numbers between 01 and is matched with the search rate. If the condition is met, it samples a random operation. If the condition is not met, Greedy performs the action that has the highest reward given the current situation.
 
 def get_rate(e):
@@ -59,7 +58,8 @@ plt.show()
 This code allows you to create an unsigned array named x that contains 1000 numbers, with a difference of 1 in the range 1 to 1000. More precisely, the linspace function in namespace creates an array of length 1000 that starts at 1 and ends at 1000, with the crossing points between these two ends evenly distributed. That is, the distance between two consecutive numbers is equal.
 This code takes a numpy array named x and calls the get_rate function for each element of the array and returns it as a new member to the y array. In other words, this code calculates a rate for each member of the x array using the get_rate function and stores its return in a new array named y.
 
-![download (1)](https://github.com/rq70/CartPole/assets/68390542/e97bff77-ea55-42e9-8c9c-3a7d7c688a69)
+![download (1)](https://github.com/rq70/CartPole/assets/68390542/e9fef992-96cc-4805-9b78-2d3114ecc658)
+
 
 # Algorithm:
 The mathematical form of Q-Learning is as follows, which updates the Q-Table.
