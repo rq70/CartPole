@@ -31,7 +31,6 @@ The goal of Q-Learning is to continuously exit the discovery phase and record th
 Most of the time, the agent chooses an action that maximizes its reward, but sometimes it acts randomly to ensure discovery.
 
  def epsilon_greedy_policy(state, env, Q_table, exploration_rate):
- 
     if (np.random.random() < exploration_rate):
         return env.action_space.sample()
     else:
@@ -40,7 +39,6 @@ Most of the time, the agent chooses an action that maximizes its reward, but som
 In the code above, a function is written that has four inputs, inside it there is a condition that creates random numbers between 01 and is matched with the search rate. If the condition is met, it samples a random operation. If the condition is not met, Greedy performs the action that has the highest reward given the current situation.
 
 def get_rate(e):
-
     return max(0.1, min(1., 1. - np.log10((e + 1) / 25.)))
     
 We use an arbitrary function to set the amount of learning and searching as you can see above. According to the current episode, it gives us the rate, and with the increase in the number of episodes, the rate tends to decrease.
@@ -49,19 +47,12 @@ This code produces a non-negative number calculated based on the input e. More p
 In fact, this code is an activation function that may be used in neural networks and machine learning. The initial function uses min and max to limit the output and uses log10 to decrease the value.
 
 import matplotlib.pyplot as plt
-
 import numpy as np
-
 x = np.linspace(1, 1000, 1000)
-
 y = np.array([get_rate(i) for i in x])
-
 plt.plot(x, y)
-
 plt.xlabel("Episode")
-
 plt.ylabel("Rate")
-
 plt.show()
 
 This code allows you to create an unsigned array named x that contains 1000 numbers, with a difference of 1 in the range 1 to 1000. More precisely, the linspace function in namespace creates an array of length 1000 that starts at 1 and ends at 1000, with the crossing points between these two ends evenly distributed. That is, the distance between two consecutive numbers is equal.
@@ -75,9 +66,9 @@ The mathematical form of Q-Learning is as follows, which updates the Q-Table.
 
 ![image](https://github.com/rq70/CartPole/assets/68390542/7a4a64e5-7583-49ca-8515-6fcdbe98455a)
 
-![code] def update_q(Q_table, state, action, reward, new_state, alpha, gamma):
+![code](def update_q(Q_table, state, action, reward, new_state, alpha, gamma):
     Q_table[state][action] = Q_table[state][action] + alpha * (reward + gamma * np.max(Q_table[new_state]) - Q_table[state][action])
-    return Q_table
+    return Q_table)
 
 # OpenAI Gym Environment:
 
