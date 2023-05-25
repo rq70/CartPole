@@ -11,7 +11,7 @@ The purpose of this report is to introduce and explain the Q-learning algorithm 
 The goal of this example/game is for the operator to keep the bar standing on the cart as long as possible without losing balance by moving the cart left or right. The more steps the agent can balance for them, the better the number of steps actually represents a reward for playing the game well. If the angle of the pole tilts more than 15 degrees to the left or right or the cart moves more than 2.4 units from the center, the agent loses the game. The learning environment is the play area and the position of the cart as well as the pole. The current position of the pole and cart indicates the current state of the game. Given the current state of the game, the agent must decide whether to move the cart to the right or left at a given time step.
 
 # Reinforcement learning:
-![download1](https://github.com/rq70/CartPole/assets/68390542/4bae71e2-e42e-4b0f-bdf3-e8992da2aeb4)
+#![download1](https://github.com/rq70/CartPole/assets/68390542/4bae71e2-e42e-4b0f-bdf3-e8992da2aeb4)
 In the picture above, you can see the main parts of the reinforcement learning algorithm of this game.
  A : Move left or right
  S : in time (t), rod angle and cart position in the environment or game area.
