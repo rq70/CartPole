@@ -187,7 +187,8 @@ plt.xlabel('Episode')
 plt.ylabel('Training cumulative reward')
 plt.show()
 ```
-![image](https://github.com/rq70/CartPole/assets/68390542/b57835ca-d6a4-4ac3-80c5-85286d30c8b7)
+
+![download (2)](https://github.com/rq70/CartPole/assets/68390542/94c6ac42-715b-45f0-8327-f014de1e925c)
 
 # Final Test and Visualisation
 ```
