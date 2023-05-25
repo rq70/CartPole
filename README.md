@@ -30,7 +30,7 @@ When the agent first starts searching, the values in the above table are unknown
 The goal of Q-Learning is to continuously exit the discovery phase and record the exact values (as possible) in the table.
 Most of the time, the agent chooses an action that maximizes its reward, but sometimes it acts randomly to ensure discovery.
 
-def epsilon_greedy_policy(state, env, Q_table, exploration_rate):
+ def epsilon_greedy_policy(state, env, Q_table, exploration_rate):
     if (np.random.random() < exploration_rate):
         return env.action_space.sample()
     else:
