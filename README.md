@@ -4,12 +4,13 @@ The Cartpole project is one of the famous problems in the field of reinforcement
 To solve this problem, the agent must control the card by moving the card in such a way that the balance of the pole is maintained. To replace the agent with a reinforcement learning algorithm, the learning process is performed in such a way that the agent randomly performs an operation and after evaluating the result, updates a set of rules to achieve the best performance in the next steps. In this model, the number of steps to learn and perform operations is determined randomly.
 This problem is one of the classical problems in the field of reinforcement learning, and many reinforcement learning algorithms, including Q-learning and Deep Q-Networks (DQN), have been used to solve it. Model training using deep learning methods and advanced reinforcement learning algorithms can help improve the agent's performance in this problem.
 The purpose of this report is to introduce and explain the Q-learning algorithm for solving reinforcement learning problems using a simple example.
+
 ![download](https://github.com/rq70/CartPole/assets/68390542/ea69c634-3323-4fb6-8a04-d3cc79e7ec44)
 
-Game rules:
+# Game rules:
 The goal of this example/game is for the operator to keep the bar standing on the cart as long as possible without losing balance by moving the cart left or right. The more steps the agent can balance for them, the better the number of steps actually represents a reward for playing the game well. If the angle of the pole tilts more than 15 degrees to the left or right or the cart moves more than 2.4 units from the center, the agent loses the game. The learning environment is the play area and the position of the cart as well as the pole. The current position of the pole and cart indicates the current state of the game. Given the current state of the game, the agent must decide whether to move the cart to the right or left at a given time step.
 
-Reinforcement learning:
+# Reinforcement learning:
 ![download1](https://github.com/rq70/CartPole/assets/68390542/4bae71e2-e42e-4b0f-bdf3-e8992da2aeb4)
 In the picture above, you can see the main parts of the reinforcement learning algorithm of this game.
  A : Move left or right
@@ -19,7 +20,7 @@ Each action is associated with a reward, which is represented by Rt+1. In this e
 Each independent attempt to play the game, from the beginning to the end, is called an episode, and each episode consists of several time steps.
 This algorithm needs to pass +100 episodes to learn the effective action. As humans need such training.
 
-Q-Learning:
+# Q-Learning:
 We need to use a specific learning algorithm so that the agent can learn from experiences and perform the right action at the right time.
 ![download](https://github.com/rq70/CartPole/assets/68390542/5e60c25c-d1c4-4db9-9dbe-5fbb3412f563)
 
@@ -57,16 +58,16 @@ This code takes a numpy array named x and calls the get_rate function for each e
 
 ![download (1)](https://github.com/rq70/CartPole/assets/68390542/e97bff77-ea55-42e9-8c9c-3a7d7c688a69)
 
-Algorithm:
+#Algorithm:
 The mathematical form of Q-Learning is as follows, which updates the Q-Table.
 
-![image](https://github.com/rq70/CartPole/assets/68390542/7a4a64e5-7583-49ca-8515-6fcdbe98455a)
+#![image](https://github.com/rq70/CartPole/assets/68390542/7a4a64e5-7583-49ca-8515-6fcdbe98455a)
 
 def update_q(Q_table, state, action, reward, new_state, alpha, gamma):
     Q_table[state][action] = Q_table[state][action] + alpha * (reward + gamma * np.max(Q_table[new_state]) - Q_table[state][action])
     return Q_table
 
-OpenAI Gym Environment:
+# OpenAI Gym Environment:
 
 !pip install gym >/dev/null
 import gym
