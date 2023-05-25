@@ -23,6 +23,7 @@ This algorithm needs to pass +100 episodes to learn the effective action. As hum
 
 # Q-Learning:
 We need to use a specific learning algorithm so that the agent can learn from experiences and perform the right action at the right time.
+
 ![download](https://github.com/rq70/CartPole/assets/68390542/5e60c25c-d1c4-4db9-9dbe-5fbb3412f563)
 
 When the agent first starts searching, the values in the above table are unknown. The only thing the agent can do is to randomly roam around the environment to search the environment and this creates a better understanding of where to go, which we call the exploration phase.
@@ -62,7 +63,7 @@ This code takes a numpy array named x and calls the get_rate function for each e
 #Algorithm:
 The mathematical form of Q-Learning is as follows, which updates the Q-Table.
 
-#![image](https://github.com/rq70/CartPole/assets/68390542/7a4a64e5-7583-49ca-8515-6fcdbe98455a)
+![image](https://github.com/rq70/CartPole/assets/68390542/7a4a64e5-7583-49ca-8515-6fcdbe98455a)
 
 def update_q(Q_table, state, action, reward, new_state, alpha, gamma):
     Q_table[state][action] = Q_table[state][action] + alpha * (reward + gamma * np.max(Q_table[new_state]) - Q_table[state][action])
@@ -242,4 +243,5 @@ env.close()
 
 ![image](https://github.com/rq70/CartPole/assets/68390542/f00ea74d-a323-4803-a578-cf6f9f271afa)
 
-![image](https://github.com/rq70/CartPole/assets/68390542/72d7544f-9dfd-4de4-83bd-552dc4034f3d)
+![download (1)](https://github.com/rq70/CartPole/assets/68390542/fec3160c-0762-495f-8101-02ebe945d91b)
+
